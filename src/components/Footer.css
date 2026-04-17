@@ -1,0 +1,124 @@
+.footer__logo {
+  color: #fff;
+}
+
+.footer {
+  background: var(--color-secondary);
+  color: rgba(255, 255, 255, 0.88);
+  padding: 3rem 0 2rem;
+  margin-top: auto;
+}
+
+.footer a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.9fr minmax(14rem, 1.35fr) 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 1279px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footer__brand {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 0 0.5rem;
+}
+
+.footer__tagline {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.footer__heading {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1rem;
+}
+
+.footer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.footer__col-contact {
+  min-width: 0;
+}
+
+.footer__address {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.35rem 0.5rem;
+  align-items: start;
+}
+
+.footer__address-pin {
+  line-height: 1.45;
+  flex-shrink: 0;
+}
+
+.footer__address-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.footer__address-line {
+  display: block;
+  line-height: 1.45;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.footer__social {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+/* Dark footer: default social chip before brand hover (from index.css .social-link) */
+.footer__social .social-link {
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.2rem;
+}
+
+.footer__bottom {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}

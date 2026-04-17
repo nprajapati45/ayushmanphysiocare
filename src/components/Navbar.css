@@ -1,0 +1,179 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  padding: 1rem 0;
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.nav--scrolled {
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.nav__inner {
+  position: relative;
+  z-index: 210;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--color-secondary);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.15rem;
+  text-decoration: none;
+}
+
+.nav__brand:hover {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__links a {
+  color: var(--color-text);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.nav__links a:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.nav__cta {
+  flex-shrink: 0;
+}
+
+.nav__toggle {
+  display: none;
+  position: relative;
+  z-index: 220;
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: var(--color-secondary);
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+/* Mobile: backdrop + right drawer (hidden on desktop) */
+.nav__backdrop {
+  display: none;
+}
+
+.nav__drawer {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .nav__links,
+  .nav__cta {
+    display: none;
+  }
+
+  .nav__toggle {
+    display: block;
+  }
+
+  .nav__backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 180;
+    background: rgba(26, 26, 46, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+    pointer-events: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .nav__backdrop--open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .nav__drawer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(18rem, 88vw);
+    max-width: 100%;
+    z-index: 190;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    box-shadow: -4px 0 32px rgba(0, 0, 0, 0.12);
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav__drawer--open {
+    transform: translateX(0);
+  }
+
+  .nav__drawer-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: calc(4.5rem + env(safe-area-inset-top, 0px)) 1.35rem 2rem;
+    border-top: none;
+    margin: 0;
+  }
+
+  .nav__drawer-inner a {
+    color: var(--color-text);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid rgba(38, 70, 83, 0.08);
+    font-size: 1rem;
+  }
+
+  .nav__drawer-inner a:last-of-type {
+    border-bottom: none;
+  }
+
+  .nav__drawer-inner a:hover {
+    color: var(--color-primary);
+  }
+
+  .nav__cta-mobile {
+    margin-top: 1rem;
+    align-self: flex-start;
+  }
+}
